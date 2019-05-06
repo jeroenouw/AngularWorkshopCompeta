@@ -1,27 +1,46 @@
-# WorkshopCompeta
+# Angular Workshop Competa IT
+
+## Share component data with other components
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
 
-## Development server
+## Part 1 - passing data from the parent to the child (@Input — property binding)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+1.  Generate with the Angular CLI a `parent-component` in the _app folder_ under `src`.
 
-## Code scaffolding
+2.  Add a string property with the name `parentExample` and the value `my parent value` in the generated `parent-component`.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+3.  Generate with the Angular CLI a `child-component` in the _app folder_ under `src`.
 
-## Build
+4.  Add a string property called `childExample` with the Angular's `@Input` decorator in the generated `child-component`.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+5.  Make use of inline templating in the `child-component` and display the `childExample` value with interpolation. Also place in front of the interpolation: `This is my child example: `
 
-## Running unit tests
+6.  In the `parent-component`, make use of inline templating and place the selector of the `child-component` inside this template.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+7.  Add the `childExample` property in the selector of the `child-component` in the template of the `parent-component`, using property binding.
 
-## Running end-to-end tests
+8.  Assign the `parentExample` as a value to the `childExample`.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+9.  In the html of the `app-component`, add the selector of the `child` component.
 
-## Further help
+If you done everything correctly then the `child-component` should now display: `This is my child example: my parent value`
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Part 2 - passing data from the child to the parent (@Output & EventEmitter — event binding)
+
+to be described...  
+
+## Part 3 - refer to the child and access their properties inside the parent (@ViewChild & AfterViewInit)
+
+to be described...  
+
+## Serve
+
+```cmd
+// To install all dependencies
+npm install
+
+// To run the Angular project
+npm start
+```
+
