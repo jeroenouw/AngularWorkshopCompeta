@@ -20,7 +20,7 @@ http://localhost:4200/
 ### Generating component
 
 ```shell
-# Example (do without '-component' prefix)
+# Example (do without '-component' postfix)
 ng g c parent
 ```
 
