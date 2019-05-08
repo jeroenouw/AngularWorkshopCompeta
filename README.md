@@ -2,9 +2,22 @@
 
 ## Share component data with other components
 
+### Serve
+
+```shell
+# To install all dependencies
+npm install
+
+# To run the Angular project
+npm start
+
+# To see running code, go to
+http://localhost:4200/
+```
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
 
-## Part 1 - passing data from the parent to the child (@Input — property binding)
+### Part 1 - passing data from the parent to the child (@Input — property binding)
 
 1.  Generate with the Angular CLI a `parent-component` in the _app folder_ under `src`.
 
@@ -20,14 +33,14 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 7.  Again in the `parent-component`. Add the `childExample` property in the selector of the `child-component` in the template of the `parent-component`, using property binding.
 
-8.  Assign the `parentExample` as a value to the `childExample`.
+8.  Assign the `parentExample` as a value to the `childExample` property.
 
 9.  In the html of the `app-component`, add the selector of the `child` component.
 
 Now run `npm start` and go to `http://localhost:4200/`.  
 If you done everything correctly then the `child-component` should now display: `This is my child example: my parent value`
 
-## Part 2 - passing data from the child to the parent (@Output & EventEmitter — event binding)
+### Part 2 - passing data from the child to the parent (@Output & EventEmitter — event binding)
 
 1.  Generate with the Angular CLI a `parent2-component` in the _app folder_ under `src`.
 
@@ -35,34 +48,44 @@ If you done everything correctly then the `child-component` should now display: 
 
 3.  Add a new method called `exampleMethodParent` with a `event` parameter. Inside this method, assign the `event` to the `parentExample`.
 
-4.   Make use of inline templating in the `parent2-component` and display the `parentExample` value with interpolation.
+4.   Make use of inline templating in the `parent2-component` and display the `parentExample` value with interpolation. Also place in front of the interpolation: `This is my parent example: `
 
 5.  Generate with the Angular CLI a `child2-component` in the _app folder_ under `src`.
 
 6.  In the `child2-component`, add a property with the name `outputExample` and as value an new event emitter with the type string. Also add the `@Output` decorator from Angular.
 
-7.  Make another property which is a string called `childExample` with the following value: `My Angular 7 child value`.
+7.  Make another property which is a string called `childExample` with the following value: `my child value`.
 
 8.  Create a method called `exampleMethodChild`, inside this method use the `outputExample` property and make use of the `emit` method of the event emitter. As parameter you pass the `childExample`.
 
 9.  In the `parent2-component`, add the selector of the `child2-component`.
 
-10.  Again in the `parent2-component`. Add the `outputExample` property in the selector of the `child2-component`. Using event binding.
-Updat
+10.  Again in the `parent2-component`. Add the `outputExample` property in the selector of the `child2-component`. Using event binding.  
+
 Now run `npm start` and go to `http://localhost:4200/`.  
-If you done everything correctly then the `parent2-component` should now display: `My Angular 7 child value` 
+If you done everything correctly then the `parent2-component` should now display: `This is my parent example: my child value` 
 
-## Part 3 - refer to the child and access their properties inside the parent (@ViewChild & AfterViewInit)
+### Part 3 - refer to the child and access their properties inside the parent (@ViewChild & AfterViewInit)
 
-to be described...  
+1.  Generate with the Angular CLI a `child3-component` in the _app folder_ under `src`.
 
-## Serve
+2.  Add a string property with the name `childExample` and the value `my child value` in the generated `child3-component`.
 
-```cmd
-// To install all dependencies
-npm install
+3.  Generate with the Angular CLI a `parent3-component` in the _app folder_ under `src`.
 
-// To run the Angular project
-npm start
-```
+4.  Add a string property called `childReference` with the Angular's `@ViewChild` decorator in the generated `parent3-component`.
 
+5.  Import the `child3-component` in the `parent3-component`.
+
+6.  Add the `child3-component` in the metadata of the `@ViewChild` decorator.
+
+7.  Add another string property called `parentExample` in `parent3-component`.
+
+8.  Implement Angular's `AfterViewInit` in the class, and add it's `ngAfterViewInit` method. 
+
+9.  In the `ngAfterViewInit` method, assign the `childExample` from the `child3-component` via the `childReference` to the `parentExample` property.
+
+10.  Make use of inline templating in the `parent3-component` and display the `parentExample` value with interpolation. Also place in front of the interpolation: `This is my parent example: `
+
+Now run `npm start` and go to `http://localhost:4200/`.  
+If you done everything correctly then the `child-component` should now display: `This is my child example: my parent value` 
